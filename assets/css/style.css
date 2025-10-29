@@ -1,56 +1,204 @@
+/* Simplified CSS - focused on readability and basic layout
+             - variables for quick customization
+             - lean selectors, responsive at two breakpoints
+        */
 
-        /* Estilos simples e comentados para aprendizado de HTML semântico */
+:root {
+    --bg: #f7f7fa;
+    --text: #111;
+    --muted: #667;
+    --accent: #ff6b6b;
+    --container: 960px;
+    --gap: 16px;
+}
 
-        :root{
-            --bg: #f7f7fa;
-            --text: #111827;
-            --muted: #6b7280;
-            --accent: #ff6b6b;
-            --max-width: 900px;
-            --gap: 16px;
-        }
+/* Basic reset */
+* {
+    box-sizing: border-box
+}
 
-        /* Reset básico */
-        *{box-sizing: border-box}
-        html,body{height:100%;margin:0}
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            color:var(--text);
-            background:var(--bg);
-            line-height:1.4;
-        }
+html,
+body {
+    height: 100%;
+    margin: 0
+}
 
-        /* Container central para limitar largura */
-        .container{max-width:var(--max-width);margin:0 auto;padding:20px}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.4
+}
 
-        /* Cabeçalho simples */
-        header{display:flex;align-items:center;justify-content:space-between;gap:var(--gap);margin-bottom:20px}
-        .site-title{margin:0;font-size:20px}
-        .nav-list{list-style:none;margin:0;padding:0;display:flex;gap:12px}
-        .nav-list a{text-decoration:none;color:var(--muted)}
+/* Layout container */
+.container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 20px
+}
 
-        /* Seções semânticas */
-        section, aside{background:#fff;padding:12px;border-radius:8px;margin-bottom:var(--gap)}
-        section h2, aside h2{margin-top:0}
+/* Header & nav (simple and modern) */
+header {
+    background: linear-gradient(90deg, rgba(255, 107, 107, 0.08), rgba(255, 166, 166, 0.03));
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px
+}
 
-        /* Grid simples para a lista de animais */
-        .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0;list-style:none}
-        .pet img{width:100%;height:140px;object-fit:cover;border-radius:6px}
-        .pet h3{margin:8px 0 4px}
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
 
-        /* Formulário básico */
-        .contact-form{display:flex;flex-direction:column;gap:8px}
-        .contact-form input,.contact-form textarea{padding:8px;border:1px solid #e6e6e6;border-radius:6px}
-        .contact-form button{background:var(--accent);color:#fff;padding:10px;border:none;border-radius:6px;cursor:pointer}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
 
-        /* Rodapé */
-        footer{color:var(--muted);text-align:center;padding:12px;margin-top:8px}
+.logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
-        /* Responsividade pequena */
-        @media (max-width:800px){
-            .grid{grid-template-columns:repeat(2,1fr)}
-        }
-        @media (max-width:480px){
-            .grid{grid-template-columns:1fr}
-            header{flex-direction:column;align-items:flex-start}
-        }
+.site-title {
+    margin: 0;
+    font-size: 18px
+}
+
+.muted {
+    color: var(--muted)
+}
+
+.nav-list {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+.nav-list a {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.nav-list a[aria-current="page"] {
+    background: var(--accent);
+    color: #fff
+}
+
+/* Main content helpers */
+.hero {
+    display: flex;
+    gap: 20px;
+    align-items: center
+}
+
+.hero img {
+    max-width: 260px;
+    width: 100%;
+    border-radius: 8px
+}
+
+section,
+aside {
+    background: #fff;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: var(--gap)
+}
+
+/* Simple responsive grid for cards */
+.grid {
+    gap: 12px;
+    padding: 0;
+    list-style: none
+}
+
+.pet img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px
+}
+
+/* Form basics */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    padding: 8px;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px
+}
+
+.contact-form .row {
+    display: flex;
+    gap: 8px
+}
+
+.contact-form .row>* {
+    flex: 1
+}
+
+.contact-form button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer
+}
+
+/* Footer */
+footer {
+    color: var(--muted);
+    text-align: center;
+    padding: 12px
+}
+
+/* Responsive breakpoints */
+@media (max-width:800px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .hero {
+        flex-direction: column
+    }
+}
+
+@media (max-width:480px) {
+    .grid {
+        grid-template-columns: 1fr
+    }
+
+    header .container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px
+    }
+
+    .nav-list {
+        flex-direction: column;
+        width: 100%
+    }
+
+    .nav-list a {
+        width: 100%;
+        text-align: left
+    }
+}

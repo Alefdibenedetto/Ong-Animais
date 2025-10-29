@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cadastro — ONG Apoio Animal</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      
+      <div class="brand">
+        <img src="assets/images/ong-pet.png" alt="Logo da ONG Apoio Animal" class="logo">
+        <h1 class="site-title">ONG Apoio Animal</h1>
+      </div>
+
+      <nav aria-label="principal">
+        <ul class="nav-list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Cadastro de Pessoas</h2>
+      <p>Preencha o formulário abaixo com seus dados. Todos os campos são obrigatórios.</p>
+
+      <form class="contact-form" id="cadastroForm" method="post" action="#">
+        <label for="nome">Nome completo</label>
+        <input id="nome" name="nome" type="text" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+
+        <div class="row">
+          <div>
+            <label for="cpf">CPF</label>
+            <input id="cpf" name="cpf" type="text" inputmode="numeric" maxlength="14" required
+              placeholder="000.000.000-00">
+          </div>
+          <div>
+            <label for="telefone">Telefone</label>
+            <input id="telefone" name="telefone" type="tel" inputmode="tel" maxlength="15" required
+              placeholder="(00) 91234-5678">
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="nascimento">Data de nascimento</label>
+            <input id="nascimento" name="nascimento" type="date" required>
+          </div>
+          <div>
+            <label for="cep">CEP</label>
+            <input id="cep" name="cep" type="text" inputmode="numeric" maxlength="9" required placeholder="00000-000">
+          </div>
+        </div>
+
+        <label for="endereco">Endereço</label>
+        <input id="endereco" name="endereco" type="text" required placeholder="Rua, número, complemento">
+
+        <div class="row">
+          <div>
+            <label for="cidade">Cidade</label>
+            <input id="cidade" name="cidade" type="text" required>
+          </div>
+          <div>
+            <label for="estado">Estado</label>
+            <select id="estado" name="estado" required>
+              <option value="">Escolha</option>
+              <option value="SP">SP</option>
+              <option value="RJ">RJ</option>
+              <option value="MG">MG</option>
+              <option value="RS">RS</option>
+              <!-- Adicione outros estados conforme necessário -->
+            </select>
+          </div>
+        </div>
+
+        <button type="submit">Enviar cadastro</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 ONG Apoio Animal</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/mask.js"></script>
+</body>
+
+</html>
